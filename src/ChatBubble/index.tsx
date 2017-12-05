@@ -26,6 +26,8 @@ export default class ChatBubble extends React.Component {
             ...styles.chatbubble,
             ...chatbubble,
             ...userBubble,
+            ...this.props.message.contentType === 'image\/base64'
+             ? styles.mediaChatbubble : {}
           }}
         >
           {this.props.message.contentType === '' &&
@@ -33,7 +35,7 @@ export default class ChatBubble extends React.Component {
           }
 
           {this.props.message.contentType === 'image\/base64' &&
-             <img src={this.props.message.message} />
+             <img style={{ ...styles.img }} src={this.props.message.message} />
           }
         </div>
       </div>
@@ -57,6 +59,8 @@ export default class ChatBubble extends React.Component {
             ...styles.chatbubble,
             ...styles.recipientChatbubble,
             ...chatbubble,
+            ...this.props.message.contentType === 'image\/base64'
+             ? styles.mediaChatbubble : {}
           }}
         >
           {this.props.message.contentType === '' &&
@@ -64,7 +68,7 @@ export default class ChatBubble extends React.Component {
           }
 
           {this.props.message.contentType === 'image\/base64' &&
-             <img src={this.props.message.message} />
+             <img style={{ ...styles.img }} src={this.props.message.message} />
           }
           
         </div>
