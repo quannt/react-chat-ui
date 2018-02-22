@@ -5,14 +5,20 @@
   "repository": "quannt/react-chat-ui",
   "main": "./lib/index.js",
   "scripts": {
-    "build-demo":
-      "babel --presets es2015,stage-0 ./demo/index.js -o ./demo/es5.js && browserify demo/es5.js -o demo/bundle.js",
+    "build-demo": "babel --presets es2015,stage-0 ./demo/index.js -o ./demo/es5.js && browserify demo/es5.js -o demo/bundle.js",
     "compile": "babel --presets es2015,stage-0,react -d lib/ temp/",
     "prepublish": "npm run compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp watch"
   },
-  "keywords": ["react", "chat", "chatfeed", "reactjs", "ui", "messenger"],
+  "keywords": [
+    "react",
+    "chat",
+    "chatfeed",
+    "reactjs",
+    "ui",
+    "messenger"
+  ],
   "author": "Brandon Mowat",
   "license": "ISC",
   "dependencies": {
@@ -23,6 +29,7 @@
   "devDependencies": {
     "babel-cli": "^6.1.18",
     "babel-core": "^6.1.18",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "babel-preset-stage-0": "^6.1.18",
