@@ -22,6 +22,9 @@ export default {
   recipientChatbubble: {
     backgroundColor: '#ccc',
   },
+  mediaChatbubble: {
+    backgroundColor: 'transparent',
+  },
   recipientChatbubbleOrientationNormal: {
     float: 'left',
   },
@@ -30,5 +33,9 @@ export default {
     fontSize: 16,
     fontWeight: '300',
     margin: 0,
+  },
+  img: {
+    maxWidth: 400,
+    height: 'auto'
   },
 };
