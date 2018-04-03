@@ -69,7 +69,7 @@ var Chat = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).call(this));
 
     _this.state = {
-      messages: [new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({
+      messages: [new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({
         id: 2,
         message: 'Hey! Evan here. react-chat-ui is pretty dooope.',
         senderName: 'Evan'
@@ -116,85 +116,104 @@ var Chat = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(_lib.ChatFeed, {
-          chatBubble: this.state.useCustomBubble && customBubble,
-          messages: this.state.messages // Boolean: list of message objects
-          , showSenderName: true,
-          bubbleStyles: {
-            // JSON: Custom bubble styles
-            text: {
-              fontSize: 16
-            },
-            chatbubble: {
-              maxWidth: 600
-            },
-            userBubble: {
-              backgroundColor: '#0084FF'
-            }
-          }
-        }),
+        { className: 'container' },
         _react2.default.createElement(
-          'form',
-          { onSubmit: function onSubmit(e) {
-              return _this2.onMessageSubmit(e);
-            } },
-          _react2.default.createElement('input', {
-            ref: function ref(m) {
-              _this2.message = m;
-            },
-            placeholder: 'Type a message...',
-            className: 'message-input'
-          })
+          'h1',
+          { className: 'text-center' },
+          'react-chat-ui'
         ),
         _react2.default.createElement(
-          'div',
-          { style: { display: 'flex', justifyContent: 'space-around' } },
+          'p',
+          { className: 'text-center' },
           _react2.default.createElement(
-            'button',
+            'a',
             {
-              style: _extends({}, styles.button, this.state.curr_user === 0 ? styles.selected : {}),
-              onClick: function onClick() {
-                return _this2.onPress(0);
-              }
+              href: 'https://github.com/brandonmowat/react-chat-ui',
+              target: '_blank'
             },
-            'You'
-          ),
-          _react2.default.createElement(
-            'button',
-            {
-              style: _extends({}, styles.button, this.state.curr_user === 1 ? styles.selected : {}),
-              onClick: function onClick() {
-                return _this2.onPress(1);
-              }
-            },
-            'Mark'
-          ),
-          _react2.default.createElement(
-            'button',
-            {
-              style: _extends({}, styles.button, this.state.curr_user === 2 ? styles.selected : {}),
-              onClick: function onClick() {
-                return _this2.onPress(2);
-              }
-            },
-            'Evan'
+            'Github'
           )
         ),
         _react2.default.createElement(
           'div',
-          {
-            style: { display: 'flex', justifyContent: 'center', marginTop: 10 }
-          },
+          { className: 'install' },
           _react2.default.createElement(
-            'button',
+            'code',
+            null,
+            'npm i -S react-chat-ui'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'chatfeed-wrapper' },
+          _react2.default.createElement(_lib.ChatFeed, {
+            chatBubble: this.state.useCustomBubble && customBubble,
+            maxHeight: 250,
+            messages: this.state.messages // Boolean: list of message objects
+            , showSenderName: true
+          }),
+          _react2.default.createElement(
+            'form',
+            { onSubmit: function onSubmit(e) {
+                return _this2.onMessageSubmit(e);
+              } },
+            _react2.default.createElement('input', {
+              ref: function ref(m) {
+                _this2.message = m;
+              },
+              placeholder: 'Type a message...',
+              className: 'message-input'
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { style: { display: 'flex', justifyContent: 'space-around' } },
+            _react2.default.createElement(
+              'button',
+              {
+                style: _extends({}, styles.button, this.state.curr_user === 0 ? styles.selected : {}),
+                onClick: function onClick() {
+                  return _this2.onPress(0);
+                }
+              },
+              'You'
+            ),
+            _react2.default.createElement(
+              'button',
+              {
+                style: _extends({}, styles.button, this.state.curr_user === 1 ? styles.selected : {}),
+                onClick: function onClick() {
+                  return _this2.onPress(1);
+                }
+              },
+              'Mark'
+            ),
+            _react2.default.createElement(
+              'button',
+              {
+                style: _extends({}, styles.button, this.state.curr_user === 2 ? styles.selected : {}),
+                onClick: function onClick() {
+                  return _this2.onPress(2);
+                }
+              },
+              'Evan'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
             {
-              style: _extends({}, styles.button, this.state.useCustomBubble ? styles.selected : {}),
-              onClick: function onClick() {
-                return _this2.setState({ useCustomBubble: !_this2.state.useCustomBubble });
-              }
+              style: { display: 'flex', justifyContent: 'center', marginTop: 10 }
             },
-            'Custom Bubbles'
+            _react2.default.createElement(
+              'button',
+              {
+                style: _extends({}, styles.button, this.state.useCustomBubble ? styles.selected : {}),
+                onClick: function onClick() {
+                  return _this2.setState({ useCustomBubble: !_this2.state.useCustomBubble });
+                }
+              },
+              'Custom Bubbles'
+            )
           )
         )
       );
