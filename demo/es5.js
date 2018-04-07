@@ -1,16 +1,16 @@
-'use strict';
+"use strict";
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
+var _reactDom = require("react-dom");
 
-var _lib = require('../lib');
+var _lib = require("../lib");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,40 +22,40 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var styles = {
   button: {
-    backgroundColor: '#fff',
-    borderColor: '#1D2129',
-    borderStyle: 'solid',
+    backgroundColor: "#fff",
+    borderColor: "#1D2129",
+    borderStyle: "solid",
     borderRadius: 20,
     borderWidth: 2,
-    color: '#1D2129',
+    color: "#1D2129",
     fontSize: 18,
-    fontWeight: '300',
+    fontWeight: "300",
     paddingTop: 8,
     paddingBottom: 8,
     paddingLeft: 16,
     paddingRight: 16
   },
   selected: {
-    color: '#fff',
-    backgroundColor: '#0084FF',
-    borderColor: '#0084FF'
+    color: "#fff",
+    backgroundColor: "#0084FF",
+    borderColor: "#0084FF"
   }
 };
 
 var users = {
-  0: 'You',
-  1: 'Mark',
-  2: 'Evan'
+  0: "You",
+  1: "Mark",
+  2: "Evan"
 };
 
 var customBubble = function customBubble(props) {
   return _react2.default.createElement(
-    'div',
+    "div",
     null,
     _react2.default.createElement(
-      'p',
+      "p",
       null,
-      props.message.senderName + ' ' + (props.message.id ? 'says' : 'said') + ': ' + props.message.message
+      props.message.senderName + " " + (props.message.id ? "says" : "said") + ": " + props.message.message
     )
   );
 };
@@ -69,10 +69,47 @@ var Chat = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).call(this));
 
     _this.state = {
-      messages: [new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({ id: 1, message: 'Hey guys!', senderName: 'Mark' }), new _lib.Message({
+      messages: [new _lib.Message({
+        id: 1,
+        message: "Hey guys!",
+        senderName: "Mark",
+        contentType: "",
+        isRead: false,
+        isDelivered: true
+      }), new _lib.Message({
+        id: 1,
+        message: "Hey guys!",
+        senderName: "Mark",
+        contentType: "",
+        isRead: true,
+        isDelivered: true
+      }), new _lib.Message({
+        id: 1,
+        message: "Hey guys!",
+        senderName: "Mark",
+        contentType: "",
+        isRead: true,
+        isDelivered: false
+      }), new _lib.Message({
+        id: 1,
+        message: "Hey guys!",
+        senderName: "Mark",
+        contentType: ""
+      }), new _lib.Message({
+        id: 1,
+        message: "Hey guys!",
+        senderName: "Mark",
+        contentType: ""
+      }), new _lib.Message({
+        id: 1,
+        message: "Hey guys!",
+        senderName: "Mark",
+        contentType: ""
+      }), new _lib.Message({
         id: 2,
-        message: 'Hey! Evan here. react-chat-ui is pretty dooope.',
-        senderName: 'Evan'
+        message: "Hey! Evan here. react-chat-ui is pretty dooope.",
+        senderName: "Evan",
+        contentType: ""
       })],
       useCustomBubble: false,
       curr_user: 0
@@ -81,12 +118,12 @@ var Chat = function (_React$Component) {
   }
 
   _createClass(Chat, [{
-    key: 'onPress',
+    key: "onPress",
     value: function onPress(user) {
       this.setState({ curr_user: user });
     }
   }, {
-    key: 'onMessageSubmit',
+    key: "onMessageSubmit",
     value: function onMessageSubmit(e) {
       var input = this.message;
       e.preventDefault();
@@ -94,11 +131,11 @@ var Chat = function (_React$Component) {
         return false;
       }
       this.pushMessage(this.state.curr_user, input.value);
-      input.value = '';
+      input.value = "";
       return true;
     }
   }, {
-    key: 'pushMessage',
+    key: "pushMessage",
     value: function pushMessage(recipient, message) {
       var prevState = this.state;
       var newMessage = new _lib.Message({
@@ -110,109 +147,115 @@ var Chat = function (_React$Component) {
       this.setState(this.state);
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var _this2 = this;
 
       return _react2.default.createElement(
-        'div',
-        { className: 'container' },
+        "div",
+        { className: "container" },
         _react2.default.createElement(
-          'h1',
-          { className: 'text-center' },
-          'react-chat-ui'
+          "h1",
+          { className: "text-center" },
+          "react-chat-ui"
         ),
         _react2.default.createElement(
-          'p',
-          { className: 'text-center' },
+          "p",
+          { className: "text-center" },
           _react2.default.createElement(
-            'a',
+            "a",
             {
-              href: 'https://github.com/brandonmowat/react-chat-ui',
-              target: '_blank'
+              href: "https://github.com/brandonmowat/react-chat-ui",
+              target: "_blank"
             },
-            'Github'
+            "Github"
           )
         ),
         _react2.default.createElement(
-          'div',
-          { className: 'install' },
+          "div",
+          { className: "install" },
           _react2.default.createElement(
-            'code',
+            "code",
             null,
-            'npm i -S react-chat-ui'
+            "npm i -S react-chat-ui"
           )
         ),
         _react2.default.createElement(
-          'div',
-          { className: 'chatfeed-wrapper' },
+          "div",
+          { className: "chatfeed-wrapper" },
           _react2.default.createElement(_lib.ChatFeed, {
-            chatBubble: this.state.useCustomBubble && customBubble,
-            maxHeight: 250,
             messages: this.state.messages // Boolean: list of message objects
-            , showSenderName: true
+            , hasInputField: false // Boolean: use our input, or use your own
+            , showSenderName: true // show the name of the user who sent the message
+            , bubblesCentered: false //Boolean should the bubbles be centered in the feed?
+            // JSON: Custom bubble styles
+            , bubbleStyles: {
+              text: {
+                fontSize: 14
+              }
+            }
           }),
           _react2.default.createElement(
-            'form',
+            "form",
             { onSubmit: function onSubmit(e) {
                 return _this2.onMessageSubmit(e);
               } },
-            _react2.default.createElement('input', {
+            _react2.default.createElement("input", {
               ref: function ref(m) {
                 _this2.message = m;
               },
-              placeholder: 'Type a message...',
-              className: 'message-input'
+              placeholder: "Type a message...",
+              className: "message-input"
             })
           ),
           _react2.default.createElement(
-            'div',
-            { style: { display: 'flex', justifyContent: 'space-around' } },
+            "div",
+            { style: { display: "flex", justifyContent: "space-around" } },
             _react2.default.createElement(
-              'button',
+              "button",
               {
                 style: _extends({}, styles.button, this.state.curr_user === 0 ? styles.selected : {}),
                 onClick: function onClick() {
                   return _this2.onPress(0);
                 }
               },
-              'You'
+              "You"
             ),
             _react2.default.createElement(
-              'button',
+              "button",
               {
                 style: _extends({}, styles.button, this.state.curr_user === 1 ? styles.selected : {}),
                 onClick: function onClick() {
                   return _this2.onPress(1);
                 }
               },
-              'Mark'
+              "Mark"
             ),
             _react2.default.createElement(
-              'button',
+              "button",
               {
                 style: _extends({}, styles.button, this.state.curr_user === 2 ? styles.selected : {}),
                 onClick: function onClick() {
                   return _this2.onPress(2);
                 }
               },
-              'Evan'
+              "Evan"
             )
           ),
           _react2.default.createElement(
-            'div',
+            "div",
             {
-              style: { display: 'flex', justifyContent: 'center', marginTop: 10 }
+              style: { display: "flex", justifyContent: "center", marginTop: 10 }
             },
             _react2.default.createElement(
-              'button',
+              "button",
               {
                 style: _extends({}, styles.button, this.state.useCustomBubble ? styles.selected : {}),
                 onClick: function onClick() {
                   return _this2.setState({ useCustomBubble: !_this2.state.useCustomBubble });
                 }
               },
-              'Custom Bubbles'
+              "Custom Bubbles"
             )
           )
         )
@@ -223,4 +266,4 @@ var Chat = function (_React$Component) {
   return Chat;
 }(_react2.default.Component);
 
-(0, _reactDom.render)(_react2.default.createElement(Chat, null), document.getElementById('chat-ui'));
+(0, _reactDom.render)(_react2.default.createElement(Chat, null), document.getElementById("chat-ui"));
