@@ -1,41 +1,45 @@
 export default {
   chatbubbleWrapper: {
-    clear: 'both',
+    clear: "both"
   },
   chatbubble: {
-    backgroundColor: '#0084FF',
+    backgroundColor: "#0084FF",
     borderRadius: 20,
     marginTop: 1,
-    marginRight: 'auto',
+    marginRight: "auto",
     marginBottom: 1,
-    marginLeft: 'auto',
+    marginLeft: "auto",
     maxWidth: 425,
-    paddingTop: 8,
-    paddingBottom: 8,
-    paddingLeft: 14,
-    paddingRight: 14,
-    width: '-webkit-fit-content',
+    minWidth: "80px",
+    padding: "6px 7px 20px 9px",
+    width: "-webkit-fit-content",
+    position: "relative"
   },
   chatbubbleOrientationNormal: {
-    float: 'right',
+    float: "right"
   },
   recipientChatbubble: {
-    backgroundColor: '#ccc',
+    backgroundColor: "#ccc"
   },
   mediaChatbubble: {
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent"
   },
   recipientChatbubbleOrientationNormal: {
-    float: 'left',
+    float: "left"
   },
   p: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
     fontSize: 16,
-    fontWeight: '300',
-    margin: 0,
+    fontWeight: "300",
+    margin: 0
   },
   img: {
     maxWidth: 400,
-    height: 'auto'
+    height: "auto"
   },
+  chatBubbleStatus: {
+    position: "absolute",
+    right: "10px",
+    bottom: "0"
+  }
 };
