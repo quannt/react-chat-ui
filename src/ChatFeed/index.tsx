@@ -2,11 +2,11 @@
 // Written, developed, and designed by Brandon Mowat for the purpose of helping
 // other developers make chat interfaces.
 
-import * as React from 'react';
-import DefaultChatBubble from '../ChatBubble';
-import ChatInput from '../ChatInput';
-import Message from '../Message';
-import styles from './styles';
+import * as React from "react";
+import DefaultChatBubble from "../ChatBubble";
+import ChatInput from "../ChatInput";
+import Message from "../Message";
+import styles from "./styles";
 
 // Model for ChatFeed props.
 interface ChatFeedInterface {
@@ -51,11 +51,16 @@ export default class ChatFeed extends React.Component {
   }
 
   /**
-  * Parses and collects messages of one type to be grouped together.
-  * @return {messageNodes} - a JSX wrapped group of messages
-  */
+   * Parses and collects messages of one type to be grouped together.
+   * @return {messageNodes} - a JSX wrapped group of messages
+   */
   renderGroup(key: number, messages: [Message], index: number, id: number) {
-    const { bubblesCentered, bubbleStyles, showSenderName, chatBubble } = this.props;
+    const {
+      bubblesCentered,
+      bubbleStyles,
+      showSenderName,
+      chatBubble
+    } = this.props;
     const ChatBubble = chatBubble || DefaultChatBubble;
     const group = [];
 
@@ -78,19 +83,14 @@ export default class ChatFeed extends React.Component {
 
     return (
       <div key={key} style={styles.chatbubbleWrapper}>
-        {showSenderName &&
-          (sampleMessage.senderName !== '' &&
-            (sampleMessage.id !== 0 && (
-              <h5 style={styles.bubbleGroupHeader}>{sampleMessage.senderName}</h5>
-            )))}
         {messageNodes}
       </div>
     );
   }
 
   /**
-  * Determines what type of message/messages to render.
-  */
+   * Determines what type of message/messages to render.
+   */
   renderMessages(messages: [Message]) {
     const { isTyping, bubbleStyles, chatBubble } = this.props;
 
@@ -109,10 +109,19 @@ export default class ChatFeed extends React.Component {
       messageNodes.push(
         <div key="isTyping" style={{ ...styles.chatbubbleWrapper }}>
           <ChatBubble
-            message={new Message({ id: 1, message: '...', senderName: '', contentType: '' })}
+            message={
+              new Message({
+                id: 1,
+                message: "...",
+                senderName: "",
+                contentType: "",
+                isDelivered: false,
+                isRead: false
+              })
+            }
             bubbleStyles={bubbleStyles}
           />
-        </div>,
+        </div>
       );
     }
 
@@ -121,12 +130,12 @@ export default class ChatFeed extends React.Component {
   }
 
   /**
-  * render : renders our chatfeed
-  */
+   * render : renders our chatfeed
+   */
   render() {
     const inputField = this.props.hasInputField && <ChatInput />;
     const { maxHeight } = this.props;
-    
+
     return (
       <div id="chat-panel" style={styles.chatPanel}>
         <div
@@ -136,7 +145,9 @@ export default class ChatFeed extends React.Component {
           className="chat-history"
           style={{ ...styles.chatHistory, maxHeight }}
         >
-          <div className="chat-messages">{this.renderMessages(this.props.messages)}</div>
+          <div className="chat-messages">
+            {this.renderMessages(this.props.messages)}
+          </div>
         </div>
         {inputField}
       </div>

@@ -5,7 +5,16 @@ import styles from "./styles";
 const defaultBubbleStyles = {
   userBubble: {},
   chatbubble: {},
-  text: {}
+  text: {},
+  senderNameStyle: {
+    fontSize: "12px",
+    fontWeight: "normal",
+    lineHeight: "1.1",
+    overflow: "hidden",
+    paddingLeft: "12px",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap"
+  }
 };
 
 export default class ChatBubble extends React.Component {
@@ -26,6 +35,11 @@ export default class ChatBubble extends React.Component {
           ...(bubblesCentered ? {} : styles.chatbubbleOrientationNormal)
         }}
       >
+        {this.props.message.senderName !== "" && (
+          <span style={defaultBubbleStyles.senderNameStyle}>
+            {this.props.message.senderName}
+          </span>
+        )}
         <div
           style={{
             ...styles.chatbubble,
@@ -97,6 +111,11 @@ export default class ChatBubble extends React.Component {
             : styles.recipientChatbubbleOrientationNormal)
         }}
       >
+        {this.props.message.senderName !== "" && (
+          <span style={defaultBubbleStyles.senderNameStyle}>
+            {this.props.message.senderName}
+          </span>
+        )}
         <div
           style={{
             ...styles.chatbubble,

@@ -8,6 +8,8 @@ interface MessageData {
   message: string;
   senderName: string;
   contentType: string;
+  isDelivered: boolean;
+  isRead: boolean;
 }
 
 export default class Message {
